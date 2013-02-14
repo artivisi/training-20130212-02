@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import org.postgresql.ds.PGSimpleDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -17,7 +18,8 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class UserDao {
-    @Autowired private PGSimpleDataSource dataSource;
+    @Autowired @Qualifier("dataSource2") 
+    private PGSimpleDataSource dataSource;
         
     public void simpan(User u) throws Exception {
         String sql = "insert into t_user (username, password) values (?,?)";
