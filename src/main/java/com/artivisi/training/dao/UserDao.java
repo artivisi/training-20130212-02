@@ -16,11 +16,11 @@ import org.postgresql.ds.PGSimpleDataSource;
 public class UserDao {
     private PGSimpleDataSource dataSource;
     
-    // constructor injection
-    public UserDao(PGSimpleDataSource ds){
-        dataSource = ds;
+    // setter injection
+    public void setDataSource(PGSimpleDataSource dataSource) {
+        this.dataSource = dataSource;
     }
-    
+        
     public void simpan(User u) throws Exception {
         String sql = "insert into t_user (username, password) values (?,?)";
         

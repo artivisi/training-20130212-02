@@ -27,7 +27,8 @@ public class UserDaoTest {
         dataSource.setPassword("ib123");
         
         // inject dataSource ke dalam UserDao
-        UserDao ud = new UserDao(dataSource);
+        UserDao ud = new UserDao();
+        ud.setDataSource(dataSource);
         ud.simpan(u);
     }
 }
