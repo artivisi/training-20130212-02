@@ -16,12 +16,9 @@ import org.postgresql.ds.PGSimpleDataSource;
 public class UserDao {
     private PGSimpleDataSource dataSource;
     
-    public UserDao(){
-        dataSource = new PGSimpleDataSource();
-        dataSource.setServerName("localhost");
-        dataSource.setDatabaseName("internetbanking");
-        dataSource.setUser("ib");
-        dataSource.setPassword("ib123");
+    // constructor injection
+    public UserDao(PGSimpleDataSource ds){
+        dataSource = ds;
     }
     
     public void simpan(User u) throws Exception {

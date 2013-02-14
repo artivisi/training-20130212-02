@@ -6,6 +6,7 @@ package com.artivisi.training.dao;
 
 import com.artivisi.training.domain.User;
 import org.junit.Test;
+import org.postgresql.ds.PGSimpleDataSource;
 
 /**
  *
@@ -19,7 +20,14 @@ public class UserDaoTest {
         u.setUsername("endy");
         u.setPassword("123");
         
-        UserDao ud = new UserDao();
+        PGSimpleDataSource dataSource = new PGSimpleDataSource();
+        dataSource.setServerName("localhost");
+        dataSource.setDatabaseName("internetbanking");
+        dataSource.setUser("ib");
+        dataSource.setPassword("ib123");
+        
+        // inject dataSource ke dalam UserDao
+        UserDao ud = new UserDao(dataSource);
         ud.simpan(u);
     }
 }
