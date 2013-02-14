@@ -7,6 +7,8 @@ package com.artivisi.training.dao;
 import com.artivisi.training.domain.User;
 import org.junit.Test;
 import org.postgresql.ds.PGSimpleDataSource;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  *
@@ -20,15 +22,14 @@ public class UserDaoTest {
         u.setUsername("endy");
         u.setPassword("123");
         
-        PGSimpleDataSource dataSource = new PGSimpleDataSource();
-        dataSource.setServerName("localhost");
-        dataSource.setDatabaseName("internetbanking");
-        dataSource.setUser("ib");
-        dataSource.setPassword("ib123");
+        // inisialisasi Spring Framework
+        ApplicationContext spring 
+                = new ClassPathXmlApplicationContext("classpath:konfig-spring.xml");
         
-        // inject dataSource ke dalam UserDao
-        UserDao ud = new UserDao();
-        ud.setDataSource(dataSource);
+        // UserDao minta ke Spring
+        UserDao ud = spring.getBean(UserDao.class);
+        
+        // Tinggal dipakai, tidak perlu repot inisialisasi dan inject
         ud.simpan(u);
     }
 }
