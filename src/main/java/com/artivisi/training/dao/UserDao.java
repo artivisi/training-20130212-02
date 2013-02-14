@@ -8,18 +8,16 @@ import com.artivisi.training.domain.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import org.postgresql.ds.PGSimpleDataSource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author endy
  */
+@Repository
 public class UserDao {
-    private PGSimpleDataSource dataSource;
-    
-    // setter injection
-    public void setDataSource(PGSimpleDataSource dataSource) {
-        this.dataSource = dataSource;
-    }
+    @Autowired private PGSimpleDataSource dataSource;
         
     public void simpan(User u) throws Exception {
         String sql = "insert into t_user (username, password) values (?,?)";
