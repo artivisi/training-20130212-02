@@ -74,6 +74,30 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public List<String> getDaftarEmail() {
+        return daftarEmail;
+    }
+
+    public void setDaftarEmail(List<String> daftarEmail) {
+        this.daftarEmail = daftarEmail;
+    }
+
+    public List<Phone> getDaftarTelepon() {
+        return daftarTelepon;
+    }
+
+    public void setDaftarTelepon(List<Phone> daftarTelepon) {
+        this.daftarTelepon = daftarTelepon;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
     
     
 }
