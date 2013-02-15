@@ -64,4 +64,15 @@ public class UserDao {
                 .getSingleResult();
         return hasil;
     }
+    
+    public List<User> cariUserDenganNamaRole(String r){
+        List<User> hasil = entityManager
+                .createQuery("select u from User u "
+                + "where u.role.kode like :kode or u.role.nama like :nama "
+                + "order by u.username")
+                .setParameter("kode", "%"+r+"%")
+                .setParameter("nama", "%"+r+"%")
+                .getResultList();
+        return hasil;
+    }
 }

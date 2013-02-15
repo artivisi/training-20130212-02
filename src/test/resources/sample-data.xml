@@ -1,9 +1,22 @@
 <dataset>
     
+    <t_role
+        id="1"
+        kode="admin"
+        nama="Administrator"
+    />
+    
+    <t_role
+        id="2"
+        kode="staff"
+        nama="Staff"
+    />
+    
     <t_user 
         id="1"
         username="dadang"
         password="123"
+        id_role="2"
     />
     
     <t_user_email 

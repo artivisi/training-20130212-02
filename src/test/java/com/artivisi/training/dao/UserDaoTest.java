@@ -8,6 +8,7 @@ import com.artivisi.training.domain.Phone;
 import com.artivisi.training.domain.User;
 import java.io.File;
 import java.sql.Connection;
+import java.util.List;
 import javax.sql.DataSource;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
@@ -96,6 +97,15 @@ public class UserDaoTest {
         
         User ux = userDao.cariByUsername("dadang");
         Assert.assertNull(ux);
+    }
+    
+    @Test
+    public void testCariUserByRole(){
+        List<User> hasil1 = userDao.cariUserDenganNamaRole("admin");
+        Assert.assertEquals(new Integer(0), new Integer(hasil1.size()));
+        
+        List<User> hasil2 = userDao.cariUserDenganNamaRole("sta");
+        Assert.assertEquals(new Integer(1), new Integer(hasil2.size()));
     }
     
 }
