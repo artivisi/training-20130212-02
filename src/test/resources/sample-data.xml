@@ -1,0 +1,26 @@
+<dataset>
+    
+    <t_user 
+        id="1"
+        username="dadang"
+        password="123"
+    />
+    
+    <t_user_email 
+        id_user="1"
+        email="dadang@artivisi.com"
+    />
+    
+    <t_user_phone 
+        id_user="1"
+        keterangan="Telepon Kantor"
+        nomer_telepon="0218661859"
+    />
+    
+    <t_user_phone 
+        id_user="1"
+        keterangan="Handphone"
+        nomer_telepon="08123456789"
+    />
+    
+</dataset>
