@@ -5,30 +5,22 @@
 package com.artivisi.training.dao;
 
 import com.artivisi.training.domain.User;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import org.postgresql.ds.PGSimpleDataSource;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author endy
  */
-@Repository
+@Repository @Transactional
 public class UserDao {
-    @Autowired @Qualifier("dataSource2") 
-    private PGSimpleDataSource dataSource;
+    
+    @PersistenceContext
+    private EntityManager entityManager;
         
     public void simpan(User u) throws Exception {
-        String sql = "insert into t_user (username, password) values (?,?)";
-        
-        Connection conn = dataSource.getConnection();
-        PreparedStatement ps = conn.prepareStatement(sql);
-        
-        ps.setString(1, u.getUsername());
-        ps.setString(2, u.getPassword());
-        ps.executeUpdate();
+        entityManager.persist(u);
     }
 }

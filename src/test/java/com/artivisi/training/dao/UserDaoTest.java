@@ -6,7 +6,6 @@ package com.artivisi.training.dao;
 
 import com.artivisi.training.domain.User;
 import org.junit.Test;
-import org.postgresql.ds.PGSimpleDataSource;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
