@@ -10,6 +10,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -30,6 +33,15 @@ public class Role {
     @OneToMany(mappedBy="role")
     private List<User> daftarUser
             = new ArrayList<User>();
+    
+    @ManyToMany
+    @JoinTable(
+            name="t_role_permission", 
+            joinColumns=@JoinColumn(name="id_role"), 
+            inverseJoinColumns=@JoinColumn(name="id_permission")
+    )
+    private List<Permission> daftarPermission
+            = new ArrayList<Permission>();
 
     public Integer getId() {
         return id;
