@@ -7,6 +7,7 @@ package com.artivisi.training.domain;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -34,7 +35,7 @@ public class Role {
     private List<User> daftarUser
             = new ArrayList<User>();
     
-    @ManyToMany
+    @ManyToMany(fetch= FetchType.EAGER)
     @JoinTable(
             name="t_role_permission", 
             joinColumns=@JoinColumn(name="id_role"), 

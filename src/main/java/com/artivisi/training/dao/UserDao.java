@@ -50,10 +50,7 @@ public class UserDao {
                     .createQuery("select u from User u where u.username = :x")
                     .setParameter("x", username)
                     .getSingleResult();
-            
-            // supaya tidak kena LIE, load dulu data permission disini
-            u.getRole().getDaftarPermission().size();
-            
+                                  
             return u;
         } catch (NoResultException err){
             return null;
