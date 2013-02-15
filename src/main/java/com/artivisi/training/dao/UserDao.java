@@ -6,6 +6,7 @@ package com.artivisi.training.dao;
 
 import com.artivisi.training.domain.User;
 import java.util.List;
+import java.util.Random;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
@@ -27,6 +28,12 @@ public class UserDao {
             entityManager.persist(u);
         } else {
             entityManager.merge(u);
+        }
+        
+        // error secara random, untuk mengetes rollback @Transactional
+        int rand = new Random().nextInt(10);
+        if(rand % 2 == 0){
+            throw new IllegalStateException("Pura-puranya terjadi error");
         }
     }
     
