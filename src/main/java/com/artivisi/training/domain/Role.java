@@ -66,6 +66,22 @@ public class Role {
     public void setNama(String nama) {
         this.nama = nama;
     }
+
+    public List<User> getDaftarUser() {
+        return daftarUser;
+    }
+
+    public void setDaftarUser(List<User> daftarUser) {
+        this.daftarUser = daftarUser;
+    }
+
+    public List<Permission> getDaftarPermission() {
+        return daftarPermission;
+    }
+
+    public void setDaftarPermission(List<Permission> daftarPermission) {
+        this.daftarPermission = daftarPermission;
+    }
     
     
 }

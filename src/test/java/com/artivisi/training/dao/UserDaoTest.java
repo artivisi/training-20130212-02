@@ -79,6 +79,10 @@ public class UserDaoTest {
         Assert.assertEquals("dadang", u.getUsername());
         Assert.assertEquals("123", u.getPassword());
         
+        // tampilkan data role, harusnya lancar
+        System.out.println("Nama Role : "+u.getRole().getNama());
+        System.out.println("Jumlah permission dalam role : "+u.getRole().getDaftarPermission().size());
+        
         Assert.assertNull(userDao.cariByUsername("doni"));
     }
     
