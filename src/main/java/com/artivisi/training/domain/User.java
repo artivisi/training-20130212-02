@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -45,6 +46,10 @@ public class User {
     )
     private List<Phone> daftarTelepon 
             = new ArrayList<Phone>();
+    
+    @ManyToOne
+    @JoinColumn(name="id_role")
+    private Role role;
     
     public Integer getId() {
         return id;
