@@ -37,6 +37,15 @@ public class User {
     private List<String> daftarEmail 
             = new ArrayList<String>();
 
+    
+    @ElementCollection
+    @CollectionTable(
+            name="t_user_phone", 
+            joinColumns=@JoinColumn(name="id_user")
+    )
+    private List<Phone> daftarTelepon 
+            = new ArrayList<Phone>();
+    
     public Integer getId() {
         return id;
     }
