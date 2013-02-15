@@ -21,6 +21,10 @@ public class UserDao {
     private EntityManager entityManager;
         
     public void simpan(User u) throws Exception {
-        entityManager.persist(u);
+        if(u.getId() == null){
+            entityManager.persist(u);
+        } else {
+            entityManager.merge(u);
+        }
     }
 }
