@@ -22,4 +22,8 @@ public class RoleDao {
     public void simpan(Role u) throws Exception {
         entityManager.persist(u);
     }
+    
+    public Role cariById(Integer id){
+        return entityManager.find(Role.class, id);
+    }
 }
