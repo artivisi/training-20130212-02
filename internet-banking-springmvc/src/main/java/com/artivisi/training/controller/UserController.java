@@ -32,4 +32,10 @@ public class UserController {
         
         return mm;
     }
+    
+    @RequestMapping("/user/form")
+    public ModelMap tampilkanForm(){
+        ModelMap mm = new ModelMap();
+        return mm;
+    }
 }
