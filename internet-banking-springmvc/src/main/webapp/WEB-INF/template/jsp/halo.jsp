@@ -12,6 +12,6 @@
         <title>Halo SpringMVC</title>
     </head>
     <body>
-        <h1>Halo SpringMVC</h1>
+        <h1>Halo ${nama}</h1>
     </body>
 </html>
