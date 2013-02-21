@@ -14,6 +14,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -37,12 +38,15 @@ public class UserController {
     }
     
     @RequestMapping(value="/user/form", method= RequestMethod.GET)
-    public ModelMap tampilkanForm(){
+    public ModelMap tampilkanForm(@RequestParam(required=false) Integer id){
         ModelMap mm = new ModelMap();
         
-        User u = new User();
-        Role r = new Role();
-        u.setRole(r);
+        User u = userDao.cariById(id);
+        if(u == null){
+            u = new User();
+            Role r = new Role();
+            u.setRole(r);
+        }
         
         mm.addAttribute("user", u);
         

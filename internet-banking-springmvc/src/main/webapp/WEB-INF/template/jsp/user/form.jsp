@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,24 +15,38 @@
     <body>
         <h1>Edit User</h1>
 
-        <form method="post">
+        <spring:form modelAttribute="user">
 
             <table border="0">
                 <tbody>
                     <tr>
                         <td>Username</td>
-                        <td><input name="username" type="text"/></td>
-                        <td></td>
+                        <td>
+                            <spring:input path="username"/>
+                        </td>
+                        <td>
+                            <font color="red">
+                                <spring:errors path="username"/>
+                            </font>
+                        </td>
                     </tr>
                     <tr>
                         <td>Password</td>
-                        <td><input name="password" type="password"/></td>
-                        <td></td>
+                        <td><spring:password path="password"/></td>
+                        <td>
+                            <font color="red">
+                                <spring:errors path="password"/>
+                            </font>
+                        </td>
                     </tr>
                     <tr>
                         <td>Role</td>
-                        <td><input name="role.id" type="text"/></td>
-                        <td></td>
+                        <td><spring:input path="role.id"/></td>
+                        <td>
+                            <font color="red">
+                                <spring:errors path="role"/>
+                            </font>
+                        </td>
                     </tr>
                     <tr>
                         <td>&nbsp;</td>
@@ -41,7 +56,7 @@
                 </tbody>
             </table>
 
-        </form>
+        </spring:form>
 
     </body>
 </html>
