@@ -79,6 +79,9 @@ public class UserDao {
     }
 
     public User cariById(Integer id) {
+        if(id == null){
+            return null;
+        }
         return entityManager.find(User.class, id);
     }
 }
