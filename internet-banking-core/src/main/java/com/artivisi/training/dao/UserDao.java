@@ -23,17 +23,11 @@ public class UserDao {
     @PersistenceContext
     private EntityManager entityManager;
         
-    public void simpan(User u) throws Exception {
+    public void simpan(User u) {
         if(u.getId() == null){
             entityManager.persist(u);
         } else {
             entityManager.merge(u);
-        }
-        
-        // error secara random, untuk mengetes rollback @Transactional
-        int rand = new Random().nextInt(10);
-        if(rand % 2 == 0){
-            throw new IllegalStateException("Pura-puranya terjadi error");
         }
     }
     

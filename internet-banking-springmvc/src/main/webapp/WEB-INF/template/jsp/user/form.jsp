@@ -14,23 +14,23 @@
     <body>
         <h1>Edit User</h1>
 
-        <form>
+        <form method="post">
 
             <table border="0">
                 <tbody>
                     <tr>
                         <td>Username</td>
-                        <td><input type="text"/></td>
+                        <td><input name="username" type="text"/></td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>Password</td>
-                        <td><input type="password"/></td>
+                        <td><input name="password" type="password"/></td>
                         <td></td>
                     </tr>
                     <tr>
                         <td>Role</td>
-                        <td><input type="text"/></td>
+                        <td><input name="role.id" type="text"/></td>
                         <td></td>
                     </tr>
                     <tr>
