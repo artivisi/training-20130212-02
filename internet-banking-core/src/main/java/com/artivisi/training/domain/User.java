@@ -55,6 +55,7 @@ public class User {
     private List<Phone> daftarTelepon 
             = new ArrayList<Phone>();
     
+    @NotNull
     @ManyToOne
     @JoinColumn(name="id_role")
     private Role role;
