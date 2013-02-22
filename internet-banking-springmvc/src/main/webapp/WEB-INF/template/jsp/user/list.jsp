@@ -19,6 +19,7 @@
             <thead>
                 <tr>
                     <th>Username</th>
+                    <th>Tanggal Lahir</th>
                     <th>Role</th>
                     <th>
                         <a href="form" class="btn">
@@ -32,6 +33,7 @@
                 <c:forEach var="u" items="${daftarUser}">
                     <tr>
                         <td>${u.username}</td>
+                        <td>${u.tanggalLahir}</td>
                         <td>${u.role.nama}</td>
                         <td>
                             <a href="form?id=${u.id}" class="btn">

@@ -40,6 +40,15 @@
                         </td>
                     </tr>
                     <tr>
+                        <td>Tanggal Lahir (dd-MM-yyyy)</td>
+                        <td><spring:input path="tanggalLahir"/></td>
+                        <td>
+                            <font color="red">
+                                <spring:errors path="tanggalLahir"/>
+                            </font>
+                        </td>
+                    </tr>
+                    <tr>
                         <td>Role</td>
                         <td>
                             <spring:select path="role.id">

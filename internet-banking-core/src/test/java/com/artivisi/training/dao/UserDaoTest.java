@@ -8,6 +8,7 @@ import com.artivisi.training.domain.Phone;
 import com.artivisi.training.domain.User;
 import java.io.File;
 import java.sql.Connection;
+import java.util.Date;
 import java.util.List;
 import javax.sql.DataSource;
 import org.dbunit.database.DatabaseConnection;
@@ -19,8 +20,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -52,6 +51,7 @@ public class UserDaoTest {
         User u = new User();
         u.setUsername("endy");
         u.setPassword("123");
+        u.setTanggalLahir(new Date());
         
         u.getDaftarEmail().add("endy.muhardin@gmail.com");
         

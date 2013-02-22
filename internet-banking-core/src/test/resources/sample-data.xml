@@ -17,6 +17,7 @@
         username="dadang"
         password="123"
         id_role="2"
+        tanggal_lahir="2000-10-10"
     />
     
     <t_user_email 

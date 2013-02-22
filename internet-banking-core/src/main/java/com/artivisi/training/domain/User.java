@@ -5,6 +5,7 @@
 package com.artivisi.training.domain;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
@@ -15,7 +16,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -36,6 +40,12 @@ public class User {
     @NotEmpty
     @Size(min=4, max=255)
     private String password;
+    
+    @NotNull 
+    @Past
+    @Column(name="tanggal_lahir", nullable=false)
+    @Temporal(TemporalType.DATE)
+    private Date tanggalLahir;
     
     @ElementCollection
     @CollectionTable(
@@ -66,6 +76,14 @@ public class User {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Date getTanggalLahir() {
+        return tanggalLahir;
+    }
+
+    public void setTanggalLahir(Date tanggalLahir) {
+        this.tanggalLahir = tanggalLahir;
     }
 
     public String getUsername() {
