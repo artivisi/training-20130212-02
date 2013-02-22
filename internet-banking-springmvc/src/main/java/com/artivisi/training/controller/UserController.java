@@ -4,6 +4,7 @@
  */
 package com.artivisi.training.controller;
 
+import com.artivisi.training.dao.RoleDao;
 import com.artivisi.training.dao.UserDao;
 import com.artivisi.training.domain.Role;
 import com.artivisi.training.domain.User;
@@ -27,6 +28,7 @@ import org.springframework.web.bind.support.SessionStatus;
 public class UserController {
     
     @Autowired private UserDao userDao;
+    @Autowired private RoleDao roleDao;
     
     @RequestMapping("/user/list")
     public ModelMap daftarUser(){
@@ -38,6 +40,11 @@ public class UserController {
         mm.addAttribute("daftarUser", semuaUser);
         
         return mm;
+    }
+    
+    @ModelAttribute("daftarRole")
+    public List<Role> semuaRole(){
+        return roleDao.semuaRole();
     }
     
     @RequestMapping(value="/user/form", method= RequestMethod.GET)

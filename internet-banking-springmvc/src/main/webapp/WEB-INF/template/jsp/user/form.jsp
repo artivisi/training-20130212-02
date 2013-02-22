@@ -41,7 +41,14 @@
                     </tr>
                     <tr>
                         <td>Role</td>
-                        <td><spring:input path="role.id"/></td>
+                        <td>
+                            <spring:select path="role.id">
+                                <spring:options 
+                                    items="${daftarRole}" 
+                                    itemLabel="nama" 
+                                    itemValue="id"></spring:options>
+                            </spring:select>
+                        </td>
                         <td>
                             <font color="red">
                                 <spring:errors path="role"/>
@@ -50,7 +57,7 @@
                     </tr>
                     <tr>
                         <td>&nbsp;</td>
-                        <td><input type="submit" value="Simpan"/></td>
+                        <td><input type="submit" value="Simpan" class="btn btn-primary"/></td>
                         <td></td>
                     </tr>
                 </tbody>
