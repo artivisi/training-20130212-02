@@ -1,4 +1,11 @@
+<%-- 
+    Document   : template
+    Created on : Feb 22, 2013, 10:30:16 AM
+    Author     : endy
+--%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,7 +16,7 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -28,7 +35,7 @@
         }
       }
     </style>
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="<%= request.getContextPath() %>/css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -74,7 +81,7 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">System</li>
-              <li><a href="#">User</a></li>
+              <li><a href="<%= request.getContextPath() %>/spring/user/list">User</a></li>
               <li><a href="#">Role</a></li>
               <li><a href="#">Permission</a></li>
               <li class="nav-header">Master</li>
@@ -89,7 +96,7 @@
         </div><!--/span-->
         <div class="span9">
           <div class="row-fluid">
-              <h1>Nanti Contentnya di sini</h1>
+              <decorator:body></decorator:body>
           </div><!--/row-->
         </div><!--/span-->
       </div><!--/row-->
@@ -105,8 +112,8 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.js"></script>
+    <script src="<%= request.getContextPath() %>/js/jquery.js"></script>
+    <script src="<%= request.getContextPath() %>/js/bootstrap.js"></script>
 
   </body>
 </html>
