@@ -11,7 +11,7 @@
         <h1>Daftar User</h1>
         <h:form>
             <p:commandButton value="Tambah User Baru" action="#{userController.tambah}"></p:commandButton>
-            <p:dataTable value="#{userController.daftarUser}" var="u">
+            <p:dataTable value="#{userController.listDataModelUser}" var="u">
                 <p:column>
                     <f:facet name="header">
                         Username
