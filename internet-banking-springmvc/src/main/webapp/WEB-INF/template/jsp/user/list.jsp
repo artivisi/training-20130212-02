@@ -14,13 +14,18 @@
     </head>
     <body>
         <h1>Daftar User</h1>
-        
-        <table border="0">
+
+        <table class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>Username</th>
                     <th>Role</th>
-                    <th>&nbsp;</th>
+                    <th>
+                        <a href="form" class="btn">
+                            <i class="icon-plus"></i>
+                            Tambah User Baru
+                        </a>
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -29,16 +34,22 @@
                         <td>${u.username}</td>
                         <td>${u.role.nama}</td>
                         <td>
-                            <a href="form?id=${u.id}">edit</a> |
-                            <a href="delete?id=${u.id}">hapus</a>
+                            <a href="form?id=${u.id}" class="btn">
+                                <i class="icon-edit"></i>
+                                edit
+                            </a>
+                            <a href="delete?id=${u.id}" class="btn">
+                                <i class="icon-trash"></i>
+                                hapus
+                            </a>
                         </td>
                     </tr>
                 </c:forEach>
-                
-                
+
+
             </tbody>
         </table>
 
-        
+
     </body>
 </html>
