@@ -18,7 +18,23 @@ import org.springframework.stereotype.Controller;
 public class UserController {
     @Autowired private UserDao userDao;
     
+    private User currentUser;
+    
     public List<User> getDaftarUser(){
         return userDao.semuaUser(0, userDao.hitungSemuaUser().intValue());
     }
+    
+    public String tambah(){
+        return "form?faces-redirect=true";
+    }
+    
+    public String edit(){
+        return "form?faces-redirect=true";
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
+    
+    
 }

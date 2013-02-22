@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Edit User</title>
+    </h:head>
+    <h:body>
+        <h1>Edit User</h1>
+        
+        <h:form>
+            
+            <h:panelGrid columns="3">
+                <h:outputText value="Username"></h:outputText>
+                <h:inputText value="#{currentUser.username}"></h:inputText>
+                <h:outputText value="Pesan error"></h:outputText>
+                
+                <h:outputText value="Password"></h:outputText>
+                <h:inputText value="#{currentUser.password}"></h:inputText>
+                <h:outputText value="Pesan error"></h:outputText>
+                
+                <h:outputText value="Role"></h:outputText>
+                <h:inputText value="#{currentUser.role.id}"></h:inputText>
+                <h:outputText value="Pesan error"></h:outputText>
+                
+                <h:outputText value=""></h:outputText>
+                <h:commandButton value="Simpan"></h:commandButton>
+                <h:outputText value=""></h:outputText>
+                
+            </h:panelGrid>
+            
+        </h:form>
+        
+    </h:body>
+</html>
+
