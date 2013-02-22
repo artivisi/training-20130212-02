@@ -12,24 +12,24 @@
         <h:form>
             <p:commandButton value="Tambah User Baru"></p:commandButton>
             <p:dataTable value="#{userController.daftarUser}" var="u">
-                <h:column>
+                <p:column>
                     <f:facet name="header">
                         Username
                     </f:facet>
                     <h:outputText value="#{u.username}"></h:outputText>
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column>
                     <f:facet name="header">
                         Role
                     </f:facet>
                     <h:outputText value="#{u.role.nama}"></h:outputText>
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column>
                     <h:panelGroup>
                         <p:commandButton value="edit"></p:commandButton>
                         <p:commandButton value="hapus"></p:commandButton>
                     </h:panelGroup>
-                </h:column>
+                </p:column>
             </p:dataTable>
         </h:form>
     </h:body>
