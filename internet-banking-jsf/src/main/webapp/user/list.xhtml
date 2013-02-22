@@ -2,15 +2,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Daftar User</title>
     </h:head>
     <h:body>
         <h1>Daftar User</h1>
         <h:form>
-            <h:commandButton value="Tambah User Baru"></h:commandButton>
-            <h:dataTable value="#{userController.daftarUser}" var="u">
+            <p:commandButton value="Tambah User Baru"></p:commandButton>
+            <p:dataTable value="#{userController.daftarUser}" var="u">
                 <h:column>
                     <f:facet name="header">
                         Username
@@ -25,11 +26,11 @@
                 </h:column>
                 <h:column>
                     <h:panelGroup>
-                        <h:commandButton value="edit"></h:commandButton>
-                        <h:commandButton value="hapus"></h:commandButton>
+                        <p:commandButton value="edit"></p:commandButton>
+                        <p:commandButton value="hapus"></p:commandButton>
                     </h:panelGroup>
                 </h:column>
-            </h:dataTable>
+            </p:dataTable>
         </h:form>
     </h:body>
 </html>
