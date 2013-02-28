@@ -1,2 +1,5 @@
 # Hasil Compile Maven
 target
+/internet-banking-metro-client/nbproject/private/
+/internet-banking-metro-client/build/
+/internet-banking-metro-client/dist/
