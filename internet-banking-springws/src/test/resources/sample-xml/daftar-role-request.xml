@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:ib="http://artivisi.com/internetbanking/schemas">
+    <S:Header/>
+    <S:Body>
+        <ib:DaftarRoleRequest></ib:DaftarRoleRequest>
+    </S:Body>
+</S:Envelope>

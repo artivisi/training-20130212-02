@@ -1,29 +1,48 @@
 <?xml version="1.0"?>
 
 <xs:schema version="1.0"
+           targetNamespace="http://artivisi.com/internetbanking/schemas"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:ib="http://artivisi.com/internetbanking/schemas"
            elementFormDefault="qualified">
 
     <xs:element name="DaftarRoleRequest" />
     <xs:element name="DaftarRoleResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element maxOccurs="unbounded" ref="role"/>
+                <xs:element name="daftarRole" type="ib:Role" minOccurs="0" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:element name="role">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="id"/>
-                <xs:element ref="kode"/>
-                <xs:element ref="nama"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-    <xs:element name="id" type="xs:integer"/>
-    <xs:element name="kode" type="xs:NCName"/>
-    <xs:element name="nama" type="xs:NCName"/>
-
+    <xs:complexType name="Role">
+        <xs:sequence>
+            <xs:element name="id" type="xs:integer"/>
+            <xs:element name="kode" type="xs:string"/>
+            <xs:element name="nama" type="xs:string"/>
+            <xs:element name="daftarPermission" type="ib:Permission" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="daftarUser" type="ib:User" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
     
+    <xs:complexType name="Permission">
+        <xs:sequence/>
+    </xs:complexType>
+    
+    <xs:complexType name="User">
+        <xs:sequence>
+            <xs:element name="daftarEmail" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="daftarTelepon" type="ib:Phone" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="id" type="xs:int" minOccurs="0"/>
+            <xs:element name="password" type="xs:string" minOccurs="0"/>
+            <xs:element name="role" type="ib:Role" minOccurs="0"/>
+            <xs:element name="tanggalLahir" type="xs:date" minOccurs="0"/>
+            <xs:element name="username" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Phone">
+        <xs:sequence>
+            <xs:element name="keterangan" type="xs:string" minOccurs="0"/>
+            <xs:element name="nomer" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>
