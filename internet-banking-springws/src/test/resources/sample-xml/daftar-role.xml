@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DaftarRoleResponse>
+    <role>
+        <id>1</id>
+        <kode>admin</kode>
+        <nama>Administrator</nama>
+    </role>
+    <role>
+        <id>2</id>
+        <kode>staff</kode>
+        <nama>Staff</nama>
+    </role>
+</DaftarRoleResponse>
