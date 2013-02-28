@@ -4,6 +4,7 @@
  */
 package com.artivisi.training.jsf;
 
+import com.artivisi.training.dao.RoleDao;
 import com.artivisi.training.dao.UserDao;
 import com.artivisi.training.domain.Role;
 import com.artivisi.training.domain.User;
@@ -21,10 +22,22 @@ import org.springframework.stereotype.Controller;
 @Scope("session")
 public class UserController {
     @Autowired private UserDao userDao;
+    @Autowired private RoleDao roleDao;
     
     private User currentUser;
     private ListDataModel<User> listDataModelUser;
 
+    public List<Role> getDaftarRole(){
+        List<Role> daftarRole = roleDao.semuaRole();
+        
+        for (Role role : daftarRole) {
+            role.setDaftarPermission(null);
+            role.setDaftarUser(null);
+        }
+        
+        return daftarRole;
+    }
+    
     public ListDataModel<User> getListDataModelUser() {
         listDataModelUser = new ListDataModel<User>(getDaftarUser());
         return listDataModelUser;

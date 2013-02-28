@@ -2,40 +2,52 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Edit User</title>
     </h:head>
     <h:body>
-        <h1>Edit User</h1>
-        
-        <h:form>
-            
-            <h:panelGrid columns="3">
-                <h:outputText value="Username"></h:outputText>
-                <h:inputText value="#{userController.currentUser.username}"></h:inputText>
-                <h:outputText value="Pesan error"></h:outputText>
-                
-                <h:outputText value="Password"></h:outputText>
-                <h:inputText value="#{userController.currentUser.password}"></h:inputText>
-                <h:outputText value="Pesan error"></h:outputText>
-                
-                <h:outputText value="Tanggal Lahir"></h:outputText>
-                <p:calendar value="#{userController.currentUser.tanggalLahir}"></p:calendar>
-                <h:outputText value="Pesan error"></h:outputText>
-                
-                <h:outputText value="Role"></h:outputText>
-                <h:inputText value="#{userController.currentUser.role.id}"></h:inputText>
-                <h:outputText value="Pesan error"></h:outputText>
-                
-                <h:outputText value=""></h:outputText>
-                <h:commandButton value="Simpan" action="#{userController.simpan}"></h:commandButton>
-                <h:outputText value=""></h:outputText>
-                
-            </h:panelGrid>
-            
-        </h:form>
-        
+        <ui:composition template="../template/utama.xhtml">
+            <ui:define name="content">
+                <h1>Edit User</h1>
+
+                <h:form id="formUser">
+
+                    <h:panelGrid columns="3">
+                        <h:outputText value="Username"></h:outputText>
+                        <p:inputText id="username" value="#{userController.currentUser.username}"></p:inputText>
+                        <p:message for="username" />  
+
+                        <h:outputText value="Password"></h:outputText>
+                        <p:password id="password" value="#{userController.currentUser.password}"></p:password>
+                        <p:message for="password" />  
+
+                        <h:outputText value="Tanggal Lahir"></h:outputText>
+                        <p:calendar id="tanggalLahir" value="#{userController.currentUser.tanggalLahir}"></p:calendar>
+                        <p:message for="tanggalLahir" />  
+
+                        <h:outputText value="Role"></h:outputText>
+                        <h:selectOneMenu id="role" 
+                                         value="#{userController.currentUser.role.id}">
+                            <f:selectItems value="#{userController.daftarRole}" 
+                                           var="r"
+                                           itemLabel="#{r.nama}" 
+                                           itemValue="#{r.id}" />
+                        </h:selectOneMenu>
+                        <p:message for="role" />  
+
+                        <h:outputText value=""></h:outputText>
+                        <p:commandButton value="Simpan" action="#{userController.simpan}" update="formUser"></p:commandButton>
+                        <h:outputText value=""></h:outputText>
+
+                    </h:panelGrid>
+
+                </h:form>
+            </ui:define>
+        </ui:composition>
+
     </h:body>
 </html>
 
