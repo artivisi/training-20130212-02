@@ -28,4 +28,20 @@ public class InternetBankingRestClient {
                 HttpEntity.EMPTY, userType);
         return hasil.getBody();
     }
+    
+    public void simpan(User u){
+        if(u.getId() == null){
+            save(u);
+        } else {
+            update(u);
+        }
+    }
+    
+    private void save(User u){
+        restTemplate.postForLocation(baseUrl + "/user", u);
+    }
+    
+    private void update(User u){
+        restTemplate.put(baseUrl + "/user/"+u.getId(), u);
+    }
 }
