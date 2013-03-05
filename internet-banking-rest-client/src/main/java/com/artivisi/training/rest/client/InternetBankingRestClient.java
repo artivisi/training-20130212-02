@@ -6,7 +6,10 @@ package com.artivisi.training.rest.client;
 
 import com.artivisi.training.domain.User;
 import java.util.List;
-import java.util.Map;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -16,10 +19,13 @@ import org.springframework.web.client.RestTemplate;
 public class InternetBankingRestClient {
     private String baseUrl = "http://localhost:8080/internet-banking-rest/spring";
     private RestTemplate restTemplate = new RestTemplate();
+    ParameterizedTypeReference<List<User>> userType = new ParameterizedTypeReference<List<User>>() {};
     
-    public List<Map<String, String>> semuaUser(){
+    public List<User> semuaUser(){
         String url = baseUrl + "/user";
-        List<Map<String, String>> hasil = restTemplate.getForObject(url, List.class);
-        return hasil;
+        ResponseEntity<List<User>> hasil = restTemplate
+                .exchange(url, HttpMethod.GET, 
+                HttpEntity.EMPTY, userType);
+        return hasil.getBody();
     }
 }

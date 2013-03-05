@@ -6,9 +6,7 @@ package com.artivisi.training.rest.client;
 
 import com.artivisi.training.domain.User;
 import java.util.List;
-import java.util.Map;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -22,9 +20,9 @@ public class InternetBankingRestClientTest {
     @Test
     public void testSemuaUser() {
         InternetBankingRestClient ibrc = new InternetBankingRestClient();
-        List<Map<String, String>> hasil = ibrc.semuaUser();
-        for (Map<String, String> user : hasil) {
-            System.out.println("Username : "+user.get("username"));
+        List<User> hasil = ibrc.semuaUser();
+        for (User user : hasil) {
+            System.out.println("Username : "+user.getUsername());
         }
     }
 }
