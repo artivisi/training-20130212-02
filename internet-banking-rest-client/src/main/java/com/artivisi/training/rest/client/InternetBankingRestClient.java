@@ -37,11 +37,15 @@ public class InternetBankingRestClient {
         }
     }
     
+    public User cariById(Integer id){
+        return restTemplate.getForObject(baseUrl + "/user/{id}", User.class, id);
+    }
+    
     private void save(User u){
         restTemplate.postForLocation(baseUrl + "/user", u);
     }
     
     private void update(User u){
-        restTemplate.put(baseUrl + "/user/"+u.getId(), u);
+        restTemplate.put(baseUrl + "/user/{id}", u, u.getId());
     }
 }

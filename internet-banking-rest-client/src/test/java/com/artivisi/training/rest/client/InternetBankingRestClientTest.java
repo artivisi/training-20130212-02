@@ -8,6 +8,7 @@ import com.artivisi.training.domain.Role;
 import com.artivisi.training.domain.User;
 import java.util.Date;
 import java.util.List;
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -55,5 +56,11 @@ public class InternetBankingRestClientTest {
         u.setTanggalLahir(new Date());
         
         ibrc.simpan(u);
+    }
+    
+    @Test
+    public void testCariUserById(){
+        User u = ibrc.cariById(1);
+        Assert.assertEquals("dadang", u.getUsername());
     }
 }
