@@ -49,13 +49,25 @@ public class UserControllerREST {
         if(user == null){
             throw new IllegalStateException();
         }
-        fixLie(user);
+        user.getRole().setDaftarPermission(null);
+        user.getRole().setDaftarUser(null);
         return user;
     }
     
     @RequestMapping(value = "/user", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public void simpanUser(@RequestBody @Valid User user){
+        userDao.simpan(user);
+    }
+    
+    @RequestMapping(value = "/user/{id}", method = RequestMethod.PUT)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updateUser(@PathVariable Integer id, @RequestBody @Valid User user){
+        User u = userDao.cariById(id);
+        if(u == null){
+            throw new IllegalStateException();
+        }
+        user.setId(id);
         userDao.simpan(user);
     }
     

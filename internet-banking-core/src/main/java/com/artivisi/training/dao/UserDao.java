@@ -82,6 +82,11 @@ public class UserDao {
         if(id == null){
             return null;
         }
-        return entityManager.find(User.class, id);
+        User u = entityManager.find(User.class, id);
+        if(u != null){
+            u.getDaftarEmail().size();
+            u.getDaftarTelepon().size();
+        }
+        return u;
     }
 }
