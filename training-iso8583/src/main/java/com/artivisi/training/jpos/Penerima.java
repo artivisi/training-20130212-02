@@ -19,7 +19,6 @@ public class Penerima {
     public static void main(String[] args) throws Exception {
         int port = 20000;
         
-        
         ISOServer server = new ISOServer(port, new GspChannel(new ArtivisiPackager()), null);
         
         server.addISORequestListener(new ISORequestListener() {
