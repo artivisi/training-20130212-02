@@ -8,6 +8,8 @@ import org.jpos.iso.ISOException;
 import org.jpos.iso.ISOMUX;
 import org.jpos.iso.ISOMsg;
 import org.jpos.iso.ISORequest;
+import org.jpos.util.Log4JListener;
+import org.jpos.util.LogSource;
 
 /**
  *
@@ -28,6 +30,13 @@ public class PengirimConnectionOriented {
             }
             
         };
+        
+        org.jpos.util.Logger logger = new org.jpos.util.Logger();
+        Log4JListener log4JListener = new Log4JListener();
+        log4JListener.setLevel("info");
+        logger.addListener(log4JListener);
+        ((LogSource) mux.getISOChannel()).setLogger(logger, "client-channel");
+        mux.setLogger(logger, "mux");
         
         new Thread(mux).start();
         

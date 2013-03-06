@@ -5,6 +5,8 @@
 package com.artivisi.training.jpos;
 
 import org.jpos.iso.ISOMsg;
+import org.jpos.util.Log4JListener;
+import org.jpos.util.LogSource;
 
 /**
  *
@@ -29,6 +31,12 @@ public class PengirimConnectionless {
         GspChannel channel = new GspChannel(server, port, new ArtivisiPackager());
         channel.setTimeout(timeout);
         
+        org.jpos.util.Logger logger = new org.jpos.util.Logger();
+        Log4JListener log4JListener = new Log4JListener();
+        log4JListener.setLevel("info");
+        logger.addListener(log4JListener);
+        ((LogSource) channel).setLogger(logger, "client-channel");
+        
         ISOMsg msg = IsoConverter.createInquiryRequest();
         channel.connect();
         channel.send(msg);
@@ -36,6 +44,5 @@ public class PengirimConnectionless {
         ISOMsg reply = channel.receive();
         channel.disconnect();
         reply.setPackager(new ArtivisiPackager());
-        System.out.println("Reply : "+new String(reply.pack()));
     }
 }
