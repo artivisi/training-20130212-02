@@ -40,7 +40,7 @@ public class Server {
         System.out.println("Message : "+request);
         
         
-        String response = "0190" + request.toString();
+        String response = "0"+ request.length() + request.toString();
         s.getOutputStream().write(response.getBytes());
         s.getOutputStream().flush();
         s.close();
